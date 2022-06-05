@@ -265,7 +265,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Сообщение:</label>
-                            <textarea class="form-control" rows="3" id="message-text" require placeholder="Номер телефона, время, дата , к какому специалисту, хотели бы записаться"></textarea>
+                            <textarea class="form-control" rows="3" id="message-text" require>Например. Номер телефона: 8-900-222-12-34. Дата, время: 24.02.2022 - 15.45 . К какому специалисту, хотели бы записаться: Стоматолог-терапевт
+                                </textarea>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>

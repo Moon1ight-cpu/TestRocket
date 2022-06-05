@@ -19,27 +19,18 @@ $body = file_get_contents($email_template);
 $body = str_replace('%name%', $name, $body);
 $body = str_replace('%message%', $message, $body);
 
+$mail->addAddress("rbru-metrika@yandex.ru");
+$mail->setFrom("info@clinic.com", 'Clinic');
+$mail->Subject = "[Заявка с формы]";
+$mail->MsgHTML($body);
 
-    
+if (!$mail->send()) {
+    $message = "Ошибка отправки";
+} else {
+    $message = "Данные отправлены!";
+}
 
-    $mail->addAddress("rbru-metrika@yandex.ru");   
-	$mail->setFrom("info@clinic.com", 'Clinic');
-    $mail->Subject = "[Заявка с формы]";
-    $mail->MsgHTML($body);
+$response = ["message" => $message];
 
-
-
-
-    if (!$mail->send()) {
-      $message = "Ошибка отправки";
-  } else {
-      $message = "Данные отправлены!";
-  }
-
-    $response = ["message" => $message];
-
-    header('Content-type: application/json');
-    echo json_encode($response);
-
-
-?>
+header('Content-type: application/json');
+echo json_encode($response);
